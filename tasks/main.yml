@@ -8,6 +8,7 @@
   when: result.get('stderr')
 
 - include: server.yml
+  notify: restart redis
   when: redis_install_server == true
 
 # TODO: install sentinel
