@@ -45,5 +45,8 @@ redis_appendfsync: "everysec"
 redis_no_appendfsync_on_rewrite: "no"
 redis_auto_aof_rewrite_percentage: "100"
 redis_auto_aof_rewrite_min_size: "64mb"
-redis_slaveof: no one
-redis_slave_read_only: no
+
+redis_slaveof: false 
+redis_slave_read_only: "yes" 
+redis_slave_priority: 100
+redis_repl_backlog_size: false
