@@ -2,7 +2,7 @@
   user: name={{ redis_user }} home={{ redis_home_dir }}
 
 - name: init dir 
-  file: dest={{ item.path }} state=directory owner={{ redis_user }}
+  file: dest={{ item }} state=directory owner={{ redis_user }}
   with_items: 
     - "{{ redis_log_dir }}"
     - "{{ redis_dir }}"
