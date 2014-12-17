@@ -29,8 +29,8 @@ redis_slowlog_max_len: 128
 redis_maxmemory: 500MB 
 redis_maxmemory_policy: noeviction
 redis_rename_commands: []
-redis_dir: {{ redis_home_dir }}/data
-redis_pidfile: {{ redis_dir }}/{{ redis_port }}.pid
+redis_dir: "{{ redis_home_dir }}/data"
+redis_pidfile: "{{ redis_dir }}/{{ redis_port }}.pid"
 redis_dbfilename: dump.rdb
 redis_save:
   - 900 1
