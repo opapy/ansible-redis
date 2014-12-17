@@ -2,7 +2,10 @@
   user: name={{ redis_user }} home={{ redis_home_dir }}
 
 - name: init dir 
-  file: dest={{ redis_dir }} state=directory owner={{ redis_user }}
+  file: dest={{ item }} state=directory owner={{ redis_user }}
+  with_items:
+    - {{ redis_log_dir }}
+    - {{ redis_dir }} 
 
 - name: create startup script
   template: src=etc/init/redis.conf.j2 dest=/etc/init/redis.conf owner=root group=root mode=0755

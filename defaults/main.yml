@@ -7,6 +7,9 @@ redis_user: redis
 redis_home_dir: /var/redis
 redis_server_conf_path: /etc/redis/redis.conf
 
+redis_log_dir: /var/log/redis
+redis_logfile: "{{ redis_log_dir }}/redis.log"
+
 ##########
 # redis.conf
 ##########
