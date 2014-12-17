@@ -3,7 +3,7 @@
 
 - name: init dir 
   file: dest={{ item }} state=directory owner={{ redis_user }}
-  with_items: [redis_log_dir, redis_dir]
+  with_items: [redis_log_dir, redis_dir, redis_conf_dir]
 
 - name: create startup script
   template: src=etc/init/redis.conf.j2 dest=/etc/init/redis.conf owner=root group=root mode=0755
