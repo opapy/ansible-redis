@@ -1,0 +1,2 @@
+- name: restart redis
+  shell: 'stop redis; start redis'

@@ -1,0 +1,11 @@
+- name: add user
+  user: name={{ redis_user }} home={{ redis_home_dir }}
+
+- name: init dir 
+  file: dest={{ redis_dir }} state=directory owner={{ redis_user }}
+
+- name: create startup script
+  template: src=etc/init/redis.conf.j2 dest=/etc/init/redis.conf owner=root group=root mode=0755
+
+- name: configure server conf 
+  template: src=etc/redis/conf.j2 dest={{ redi_server_conf_path }} mode=0755

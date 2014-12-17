@@ -1,0 +1,15 @@
+- name: check redis install 
+  shell: "{{ redis_prefix }}/bin/redis-cli --version"
+  register: result
+  always_run: yes
+  ignore_errors: True
+
+- include: install_from_src.yml
+    when: not result.get('stderr')
+
+- include: server.yml
+  when: redis_install_server == true
+
+# TODO: install sentinel
+- include: sentinel.yml
+  when: redis_install_sentinel == true
